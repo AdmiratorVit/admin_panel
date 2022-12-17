@@ -13,7 +13,6 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
-
     <title>Создание конкурсов</title>
 
     <meta name="description" content=""/>
@@ -28,7 +27,6 @@
             href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
             rel="stylesheet"
     />
-
     <!-- Icons -->
     <link rel="stylesheet" href="../../assets/vendor/fonts/fontawesome.css"/>
     <link rel="stylesheet" href="../../assets/vendor/fonts/tabler-icons.css"/>
@@ -58,6 +56,7 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../../assets/js/config.js"></script>
 </head>
+
 <body>
 <!-- Layout wrapper -->
 <div class="layout-wrapper layout-content-navbar">
@@ -91,6 +90,7 @@
                             </a>
                         </li>
                     </ul>
+                    <!--/ User -->
                 </div>
                 <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
                     <ul class="navbar-nav flex-row align-items-center ms-auto">
@@ -107,7 +107,6 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-end py-0">
                                 <div class="dropdown-shortcuts-list scrollable-container">
-
                                     <div class="row row-bordered overflow-visible g-0">
                                         <div class="dropdown-shortcuts-item col">
                           <span class="dropdown-shortcuts-icon rounded-circle mb-2">
@@ -127,6 +126,7 @@
                         </li>
                         <!-- Quick links -->
                     </ul>
+                    <!--/ User -->
                 </div>
                 <!-- Search Small Screens -->
                 <div class="navbar-search-wrapper search-input-wrapper d-none">
@@ -149,13 +149,34 @@
                         <div class="col-lg-12 col-12 mb-lg-0 mb-4">
                             <div class="card invoice-preview-card">
                                 <div class="card-body d-flex flex-column">
-                                    <span class="app-brand-text fw-bold fs-4"> Создание конкурса </span>
+                                    <div>
+                                        <span class="app-brand-text fw-bold fs-4"> Создание конкурса </span>
+                                        <div class="ps-2 mt-2">
+                                            <span class="badge bg-secondary">Черновик</span>
+                                            <span class="badge bg-success">Готов к запуску</span>
+                                            <span class="badge bg-warning">Есть рекламное сообщение</span>
+                                            <span class="badge bg-success">Запущен</span>
+                                            <span class="badge bg-dark">Завершен</span>
+                                        </div>
+                                    </div>
                                     <div class="row mt-4 m-0 d-flex flex-row">
                                         <div class="d-flex flex-column align-items-center col-md-8">
                                             <div class="px-0 col-sm-12 col-12">
                                                 <div class="col-12">
                                                     <div class="mb-3">
-                                                        <span class="mb-3"> Название конкурса </span>
+                                                        <!--                                                        <span class="mb-3"> Название конкурса </span>-->
+                                                        <label class="switch switch-primary mb-1">
+                                                            <input type="checkbox" class="switch-input" checked/>
+                                                            <span class="switch-toggle-slider">
+                              <span class="switch-on">
+                                <i class="ti ti-check"></i>
+                              </span>
+                              <span class="switch-off">
+                                <i class="ti ti-x"></i>
+                              </span>
+                            </span>
+                                                            <span class="switch-label">Название конкурса</span>
+                                                        </label>
                                                         <input
                                                                 type="text"
                                                                 class="form-control mb-3"
@@ -168,63 +189,186 @@
                                             <div class="px-0 col-sm-12 col-12 mb-sm-3 mb-md-0">
                                                 <div class="col-12">
                                                     <div class="mb-3">
-                                                        <span class="mb-3"> Описание конкурса </span>
+                                                        <label class="switch switch-primary mb-1">
+                                                            <input type="checkbox" class="switch-input" checked/>
+                                                            <span class="switch-toggle-slider">
+                              <span class="switch-on">
+                                <i class="ti ti-check"></i>
+                              </span>
+                              <span class="switch-off">
+                                <i class="ti ti-x"></i>
+                              </span>
+                            </span>
+                                                            <span class="switch-label">Описание конкурса</span>
+                                                        </label>
                                                         <textarea style="min-height: 157px;" class="form-control"
                                                                   rows="2"
                                                                   id="note" placeholder="Описание конкурса"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="col-sm-12 col-md-12 col-12">
+                                                <div class="row">
 
-                                            <div class="row">
-                                                <div class="col-sm-5 col-md-12 col-12 mb-3">
-                                                    <span class="mb-3"> Ссылка на Google-sheet </span>
-                                                    <div class="col-md-12">
-                                                        <input class="form-control" type="url"
-                                                               value="https://google.com" id="html5-url-input"/>
+                                                    <div class="col-sm-4 col-md-4 col-12 mb-3">
+                                                        <span class="mb-3"> Дата/время создания </span>
+                                                        <input
+                                                                class="form-control"
+                                                                type="datetime-local"
+                                                                value="18-08-2022T12:30:00"
+                                                                id="html5-datetime-local-input"
+                                                                disabled
+                                                        />
+                                                    </div>
+                                                    <div class="col-sm-4 col-md-4 col-12 mb-3">
+                                                        <span class="mb-3"> Дата/время начала </span>
+                                                        <input
+                                                                class="form-control"
+                                                                type="datetime-local"
+                                                                value="18-08-2022T12:30:00"
+                                                                id="html5-datetime-local-input_start"
+                                                        />
+                                                    </div>
+                                                    <div class="col-sm-4 col-md-4 col-12 mb-3">
+                                                        <span class="mb-3"> Дата/время финиша </span>
+                                                        <input
+                                                                class="form-control"
+                                                                type="datetime-local"
+                                                                value="18-08-2022T12:30:00"
+                                                                id="html5-datetime-local-input_finish"
+                                                        />
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-5 col-md-4 col-12 mb-3">
-                                                    <span class="mb-3"> Дата/время создания </span>
-                                                    <input
-                                                            class="form-control"
-                                                            type="datetime-local"
-                                                            value="18-08-2022T12:30:00"
-                                                            id="html5-datetime-local-input"
-                                                            disabled
-                                                    />
-                                                </div>
-                                                <div class="col-sm-5 col-md-4 col-12 mb-3">
-                                                    <span class="mb-3"> Дата/время начала </span>
-                                                    <input
-                                                            class="form-control"
-                                                            type="datetime-local"
-                                                            value="18-08-2022T12:30:00"
-                                                            id="html5-datetime-local-input_start"
-                                                    />
-                                                </div>
-                                                <div class="col-sm-5 col-md-4 col-12 mb-3">
-                                                    <span class="mb-3"> Дата/время финиша </span>
-                                                    <input
-                                                            class="form-control"
-                                                            type="datetime-local"
-                                                            value="18-08-2022T12:30:00"
-                                                            id="html5-datetime-local-input_finish"
-                                                    />
+                                                <div class="col-sm-12 col-md-12 col-12 mb-3">
+                                                    <form class="source-item pt-4 px-0">
+                                                        <div class="mb-3" data-repeater-list="group-a">
+                                                            <div class="repeater-wrapper pt-0 col-12"
+                                                                 data-repeater-item>
+                                                                <span class="mb-3"> Ссылка на канал-условие конкурса: </span>
+                                                                <div class="d-flex border rounded position-relative pe-0">
+                                                                    <div class="row w-100 p-3">
+                                                                        <div class="col-md-6 col-12 mb-md-0 mb-3 flex-grow-1 flex-shrink-0">
+                                                                            <select class="form-select item-details mb-3">
+                                                                                <option selected disabled>Укажите
+                                                                                    источник
+                                                                                </option>
+                                                                                <option value="YouTube">YouTube</option>
+                                                                                <option value="Telegtram">Telegtram
+                                                                                </option>
+                                                                                <option value="TikTok">TikTok</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div
+                                                                            class="d-flex flex-column align-items-center justify-content-between border-start p-2"
+                                                                    >
+                                                                        <i class="ti ti-x cursor-pointer"
+                                                                           data-repeater-delete></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex flex-row pb-4">
+                                                            <div class="col-12">
+                                                                <button type="button"
+                                                                        class="btn btn-primary me-2 waves-effect waves-light col-7 col-sm-5 col-md-5"
+                                                                        data-repeater-create>Добавить ссылку
+                                                                </button>
+                                                                <!--                                                            <div class="btn-group">-->
+                                                                <button type="button" class="btn btn-success me-2">
+                                                                    <i class="ti ti-thumb-up d-block d-sm-none"></i>
+                                                                    <span class="d-none d-sm-block">Запустить</span>
+                                                                </button>
+                                                                <button type="button" class="btn btn-secondary">
+                                                                    <i class="ti ti-article d-block d-sm-none"></i>
+                                                                    <span class="d-none d-sm-block">Черновик</span>
+                                                                </button>
+                                                                <button
+                                                                        type="button"
+                                                                        class="btn btn-danger"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#modalCenter"
+                                                                >
+                                                                    Пример окна/ Убрать!!!
+                                                                </button>
+                                                                <!-- Modal -->
+                                                                <div class="modal fade" id="modalCenter" tabindex="-1"
+                                                                     aria-hidden="true">
+                                                                    <div class="modal-dialog modal-dialog-centered"
+                                                                         role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title"
+                                                                                    id="modalCenterTitle">
+                                                                                    Заголовок</h5>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div class="row">
+                                                                                    <div class="col mb-3">
+                                                                                        <label for="nameWithTitle"
+                                                                                               class="form-label">Имя</label>
+                                                                                        <input
+                                                                                                type="text"
+                                                                                                id="nameWithTitle"
+                                                                                                class="form-control"
+                                                                                                placeholder="Enter Name"
+                                                                                        />
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                    <div class="col mb-3">
+                                                                                        <span class="lead">Дорогой интегратор, это окно для Вас :-)</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button"
+                                                                                        class="btn btn-label-secondary"
+                                                                                        data-bs-dismiss="modal">
+                                                                                    Отменить
+                                                                                </button>
+                                                                                <button type="button"
+                                                                                        class="btn btn-primary">
+                                                                                    Сохранить
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="d-flex flex-row justify-content-between col-md-4 flex-wrap gap-3">
                                             <!-- Basic  -->
                                             <div class="col-12">
-                                                <span class="mb-3"> Обложка конкурса </span>
-                                                <div class="form-control p-0">
+                                                <span class=""> Обложка конкурса </span>
+                                                <div class="form-control p-0 mt-1">
                                                     <div class="card-body">
-                                                        <form action="/upload" style="height: 336px;"
-                                                              class="dropzone needsclick"
-                                                              id="dropzone-basic">
+                                                        <form action="/upload" class="dropzone needsclick"
+                                                              id="dropzone-basic1">
                                                             <div class="dz-message needsclick">
                                                                 Перетащите сюда файл или нажмите для загрузки обложки
+                                                            </div>
+                                                            <div class="fallback">
+                                                                <input name="file" type="file"/>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /Basic  -->
+                                            <!-- Basic  -->
+                                            <div class="col-12">
+                                                <span class="mb-3"> Реклама конкурса </span>
+                                                <div class="form-control p-0 mt-1">
+                                                    <div class="card-body">
+                                                        <form action="/upload" class="dropzone needsclick"
+                                                              id="dropzone-basic">
+                                                            <div class="dz-message needsclick">
+                                                                Перетащите сюда файл или нажмите для загрузки рекламы
                                                             </div>
                                                             <div class="fallback">
                                                                 <input name="file" type="file"/>
@@ -237,43 +381,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <form style="padding: 0 2.2rem !important;" class="source-item pt-4 px-0 px-sm-4">
-                                    <div class="mb-3" data-repeater-list="group-a">
-                                        <div class="repeater-wrapper pt-0" data-repeater-item>
-                                            <span class="mb-3"> Ссылка на канал-условие конкурса: </span>
-                                            <div class="d-flex border rounded position-relative pe-0">
-                                                <div class="row w-100 p-3">
-                                                    <div class="col-md-6 col-12 mb-md-0 mb-3 flex-grow-1 flex-shrink-0">
-                                                        <select class="form-select item-details mb-3">
-                                                            <option selected disabled>Укажите источник</option>
-                                                            <option value="YouTube">YouTube</option>
-                                                            <option value="Telegtram">Telegtram</option>
-                                                            <option value="TikTok">TikTok</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div
-                                                        class="d-flex flex-column align-items-center justify-content-between border-start p-2"
-                                                >
-                                                    <i class="ti ti-x cursor-pointer" data-repeater-delete></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-row pb-4">
-                                        <div class="col-12">
-                                            <button type="button"
-                                                    class="btn btn-primary me-2 waves-effect waves-light col-6 col-sm-4 col-md-3"
-                                                    data-repeater-create>Добавить ссылку
-                                            </button>
-                                            <button type="button" class="btn btn-success waves-effect waves-light">
-                                                Сохранить конкурс
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
+
                             </div>
                         </div>
+                        <!-- /Invoice Add-->
                     </div>
                     <!-- / Content -->
                     <!-- Footer -->
@@ -301,6 +412,7 @@
         </div>
         <!-- Overlay -->
         <div class="layout-overlay layout-menu-toggle"></div>
+        <!-- Drag Target Area To SlideIn Menu On Small Screens -->
         <div class="drag-target"></div>
     </div>
     <!-- / Layout wrapper -->

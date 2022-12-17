@@ -37,6 +37,14 @@
     maxFiles: 1
   });
 
+  const myDropzone1 = new Dropzone('#dropzone-basic1', {
+    previewTemplate: previewTemplate,
+    parallelUploads: 1,
+    maxFilesize: 5,
+    addRemoveLinks: true,
+    maxFiles: 1
+  });
+
   // Multiple Dropzone
   // --------------------------------------------------------------------
   const dropzoneMulti = new Dropzone('#dropzone-multi', {
